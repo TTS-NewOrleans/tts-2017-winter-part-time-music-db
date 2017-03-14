@@ -1,5 +1,9 @@
 class Song < ApplicationRecord
   belongs_to :artist
+
+  validates :name, :artist_id, presence: true
+  # validates :artist_id, presence: true
+  validates_uniqueness_of :name, scope: :artist_id
 end
 
 # == Schema Information
